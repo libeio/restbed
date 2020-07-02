@@ -1,15 +1,6 @@
 
 cmake_minimum_required(VERSION 2.8.10)
 
-project(restbed CXX)
-set(restbed_VERSION_MAJOR 4)
-set(restbed_VERSION_MINOR 6.0 )
-set(restbed_VERSION ${restbed_VERSION_MAJOR}.${restbed_VERSION_MINOR})
-set(PACKAGE_VERSION ${restbed_VERSION})
-set(VERSION "${restbed_VERSION}")
-
-message("PROJECT_SOURCE_DIR=" ${PROJECT_SOURCE_DIR})
-
 string(REGEX REPLACE "/mytest$" "" PROJECT_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 
 #
@@ -33,8 +24,24 @@ include_directories(SYSTEM ${kashmir_INCLUDE})
 include("${PROJECT_SOURCE_DIR}/cmake/manifest.cmake")
 
 include_directories(${INCLUDE_DIR})
+include_directories(.)
 
 set(RestbedSRCS ${MANIFEST})
 
-add_executable(rfserver rfserver.cpp ${RestbedSRCS})
-add_executable(rfclient rfclient.cpp ${RestbedSRCS})
+#
+# GET
+#
+add_executable(getclient getclient.cpp ${RestbedSRCS})
+add_executable(getserver getserver.cpp ${RestbedSRCS})
+
+#
+# POST
+#
+add_executable(postclient postclient.cpp ${RestbedSRCS})
+add_executable(postserver postserver.cpp ${RestbedSRCS})
+
+#
+# efficiency of POST method
+#
+add_executable(efficlient efficlient.cpp ${RestbedSRCS})
+add_executable(effiserver effiserver.cpp ${RestbedSRCS})
