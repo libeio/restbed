@@ -33,8 +33,8 @@
     
 ## POST 方法效率测试
 - 测试文件
-    + postclient.cpp
-    + postserver.cpp
+    + efficlient.cpp
+    + effiserver.cpp
 - 测试说明
     + 同步请求&响应
     + 长连接测试
@@ -45,3 +45,14 @@
     + 服务端返回 Content, 客户端收到后取出
     + 统计事务数
     
+## 客户端多类型 URI 请求及响应测试
+- 测试文件
+    + multiclient.cpp
+    + multiserver.cpp
+- 测试说明
+    + 同步请求&响应
+    + 长连接测试
+    + 在客户端处进行结果统计
+    + POST 方法
+    + 客户端发送 Cookie
+    + 服务端返回 Content, 客户端收到后取出
