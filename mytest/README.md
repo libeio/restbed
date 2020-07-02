@@ -56,3 +56,14 @@
     + POST 方法
     + 客户端发送 Cookie
     + 服务端返回 Content, 客户端收到后取出
+
+## 服务端开启线程内端口处理
+- 测试文件
+    + threadclient.cpp
+    + threadserver.cpp
+- 测试说明
+    + 同步请求&响应
+    + 长连接测试
+    + POST 方法
+    + 客户端发送 Cookie
+    + 服务端返回 Content, 客户端收到后取出

@@ -51,3 +51,9 @@ add_executable(effiserver effiserver.cpp ${RestbedSRCS})
 #
 add_executable(multiclient multiclient.cpp ${RestbedSRCS})
 add_executable(multiserver multiserver.cpp ${RestbedSRCS})
+
+#
+# thread server
+#
+add_executable(threadclient threadclient.cpp ${RestbedSRCS})
+add_executable(threadserver threadserver.cpp ${RestbedSRCS})
