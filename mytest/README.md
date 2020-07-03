@@ -67,3 +67,14 @@
     + POST 方法
     + 客户端发送 Cookie
     + 服务端返回 Content, 客户端收到后取出
+    
+## 客户端向服务端发送 body, 服务端收到后解析测试
+- 测试文件
+    + bodyclient.cpp
+    + bodyserver.cpp
+- 测试说明
+    + 同步请求&响应
+    + 长连接测试
+    + POST 方法
+    + 客户端发送 body
+    + 服务端收到 body 后解析，随后返回一个 body2

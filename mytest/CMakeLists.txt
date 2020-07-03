@@ -57,3 +57,9 @@ add_executable(multiserver multiserver.cpp ${RestbedSRCS})
 #
 add_executable(threadclient threadclient.cpp ${RestbedSRCS})
 add_executable(threadserver threadserver.cpp ${RestbedSRCS})
+
+#
+# client send body message
+#
+add_executable(bodyclient bodyclient.cpp ${RestbedSRCS})
+add_executable(bodyserver bodyserver.cpp ${RestbedSRCS})
