@@ -78,3 +78,14 @@
     + POST 方法
     + 客户端发送 body
     + 服务端收到 body 后解析，随后返回一个 body2
+    
+## 客户端向服务端发送 body(json格式), 服务端收到后解析测试
+- 测试文件
+    + jsonclient.cpp
+    + jsonserver.cpp
+- 测试说明
+    + 同步请求&响应
+    + 长连接测试
+    + POST 方法
+    + 客户端发送 body
+    + 服务端收到 body 后解析，随后返回一个 body2
