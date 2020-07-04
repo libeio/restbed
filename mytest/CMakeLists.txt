@@ -63,3 +63,9 @@ add_executable(threadserver threadserver.cpp ${RestbedSRCS})
 #
 add_executable(bodyclient bodyclient.cpp ${RestbedSRCS})
 add_executable(bodyserver bodyserver.cpp ${RestbedSRCS})
+
+#
+# json
+#
+add_executable(jsonclient jsonclient.cpp ${RestbedSRCS})
+add_executable(jsonserver jsonserver.cpp ${RestbedSRCS})
