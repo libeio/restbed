@@ -1,17 +1,40 @@
 
 cmake_minimum_required(VERSION 2.8.10)
 
+project( restbed CXX )
+
+option(BUILD_1_FIRST   	"Build 1-first program"    		ON)
+option(BUILD_2_SECOND  	"Build 2-second program"   		ON)
+option(BUILD_3_THIRD   	"Build 3-third program"    		ON)
+option(BUILD_4_FOURTH   "Build 4-fourth program"    	ON)
+option(BUILD_5_FIFTH   	"Build 5-fifth program"    		ON)
+option(BUILD_6_SIXTH   	"Build 6-sixth program"   		ON)
+option(BUILD_7_SEVENTH 	"Build 7-seventh program"  		ON)
+
 string(REGEX REPLACE "/mytest$" "" PROJECT_SOURCE_DIR ${PROJECT_SOURCE_DIR})
+
+#
+# if u wanna release, do like this `cmake -DCMAKE_BUILD_TYPE=Release`
+#
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+include(CheckCXXCompilerFlag)
 
 #
 # Configuration
 #
 include("${PROJECT_SOURCE_DIR}/cmake/configuration.cmake")
+
 #
-# Dependencies
+# Set Module Path
 #
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/modules")
 
+#
+# Find Dependencies
+#
 find_package(asio REQUIRED)
 include_directories(SYSTEM ${asio_INCLUDE})
 
@@ -28,44 +51,36 @@ include_directories(.)
 
 set(RestbedSRCS ${MANIFEST})
 
-#
-# GET
-#
-add_executable(getclient getclient.cpp ${RestbedSRCS})
-add_executable(getserver getserver.cpp ${RestbedSRCS})
+include_directories(.)
 
 #
-# POST
+# Test in Sub Directories
 #
-add_executable(postclient postclient.cpp ${RestbedSRCS})
-add_executable(postserver postserver.cpp ${RestbedSRCS})
+if(BUILD_1_FIRST)
+    add_subdirectory(01_first)
+endif()
 
-#
-# efficiency of POST method
-#
-add_executable(efficlient efficlient.cpp ${RestbedSRCS})
-add_executable(effiserver effiserver.cpp ${RestbedSRCS})
+if(BUILD_2_SECOND)
+    add_subdirectory(02_second)
+endif()
 
-#
-# multiple request
-#
-add_executable(multiclient multiclient.cpp ${RestbedSRCS})
-add_executable(multiserver multiserver.cpp ${RestbedSRCS})
+if(BUILD_3_THIRD)
+    add_subdirectory(03_third)
+endif()
 
-#
-# thread server
-#
-add_executable(threadclient threadclient.cpp ${RestbedSRCS})
-add_executable(threadserver threadserver.cpp ${RestbedSRCS})
+if(BUILD_4_FORTH)
+	add_subdirectory(04_fourth)
+endif()
 
-#
-# client send body message
-#
-add_executable(bodyclient bodyclient.cpp ${RestbedSRCS})
-add_executable(bodyserver bodyserver.cpp ${RestbedSRCS})
+if(BUILD_5_FIFTH)
+	add_subdirectory(05_fifth)
+endif()
 
-#
-# json
-#
-add_executable(jsonclient jsonclient.cpp ${RestbedSRCS})
-add_executable(jsonserver jsonserver.cpp ${RestbedSRCS})
+if(BUILD_6_SIXTH)
+	add_subdirectory(06_sixth)
+endif()
+
+if(BUILD_7_SEVENTH)
+	add_subdirectory(07_seventh)
+endif()
+
